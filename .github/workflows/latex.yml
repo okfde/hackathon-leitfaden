@@ -2,7 +2,7 @@ name: latex
 
 on:
   push:
-    branches: [ master ]
+    branches: [ master, ci ]
   pull_request:
     branches: [ master ]
 
@@ -13,9 +13,7 @@ jobs:
       - uses: actions/checkout@v2
       - uses: xu-cheng/latex-action@v2
         with:
-          compiler: pdflatex
           root_file: main.tex
-          pre_compile: bash compileall.sh
       - uses: actions/upload-artifact@v2
         with:
           name: rendered pdf
