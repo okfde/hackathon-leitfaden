@@ -15,6 +15,7 @@ jobs:
         with:
           compiler: pdflatex
           root_file: main.tex
+          pre_compile: bash compileall.sh
       - uses: actions/upload-artifact@v2
         with:
           name: rendered pdf
