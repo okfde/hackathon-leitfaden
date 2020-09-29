@@ -1,0 +1,51 @@
+name: release pdf
+
+on:
+  push:
+    tags:
+      - 'v[0-9]+.[0-9]+.[0-9]+' # Push events to matching semver with v prefix
+
+jobs:
+  build:
+    name: Upload built hackathon leitfaden pdf
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - uses: xu-cheng/texlive-action/full@v1
+        with:
+          run: |
+            ./compileall.sh
+
+      - name: Rename main.pdf
+        id: branch_info
+        run: |
+            tag_name="${GITHUB_REF##*/}"
+            filename="hackathon-leitfaden-${tag_name}.pdf"
+            echo "##[set-output name=tag_name;]${tag_name}"
+            echo "##[set-output name=filename;]${filename}"
+
+            mv main.pdf "$filename"
+
+      - name: Create Release
+        id: create_release
+        uses: actions/create-release@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          tag_name: ${{ github.ref }}
+          release_name: Hackathon Leitfaden ${{ steps.branch_info.outputs.tag_name }}
+          draft: false
+          prerelease: false
+
+      - name: Upload Release Asset
+        id: upload-release-asset
+        uses: actions/upload-release-asset@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          upload_url: ${{ steps.create_release.outputs.upload_url }}
+          asset_path: ./${{ steps.branch_info.outputs.filename }}
+          asset_name: ${{ steps.branch_info.outputs.filename }}
+          asset_content_type: application/pdf
