@@ -13,10 +13,10 @@ makeindex main
 biber main
 
 # Compile document
-pdflatex main
+pdflatex -interaction=nonstopmode main
 
 # Compile glossary
 makeglossaries main
 
 # Compile document
-pdflatex main
+pdflatex -interaction=nonstopmode main
