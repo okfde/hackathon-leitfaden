@@ -11,11 +11,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - uses: xu-cheng/latex-action@v2
+      - uses: xu-cheng/texlive-action/full@v1
         with:
-          compiler: pdflatex
-          root_file: main.tex
-          pre_compile: bash compileall.sh
+          run: bash compileall.sh
       - uses: actions/upload-artifact@v2
         with:
           name: rendered pdf
