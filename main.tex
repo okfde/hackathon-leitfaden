@@ -36,6 +36,8 @@
 ]{kaobook}
 
 \usepackage{xcolor}
+\urlstyle{same}
+\hypersetup{urlcolor=black} % Uncomment to set the colour of links in the ToC
 %
 % Source Sans Pro as the de­fault font fam­ily
 % Source Code Pro for monospace text
@@ -47,8 +49,8 @@
 \usepackage{sourcecodepro}
 
 % Set the language
-\usepackage[english]{babel} % Load characters and hyphenation
-\usepackage[english=british]{csquotes} % English quotes
+\usepackage[ngerman]{babel} % Load characters and hyphenation
+\usepackage[german=quotes]{csquotes} % English quotes
 
 % Load packages for testing
 \usepackage{blindtext}
@@ -82,17 +84,17 @@
 %	BOOK INFORMATION
 %----------------------------------------------------------------------------------------
 
-\titlehead{The \texttt{kaobook} class}
-\subject{Use this document as a template}
+\titlehead{How to Hackathon?}
+\subject{Wann und wie Hackathons kommunalen Verwaltungen helfen können.}
 
-\title[Example and documentation of the {\normalfont\texttt{kaobook}} class]{Example and documentation \\ of the {\normalfont\texttt{kaobook}} class}
-\subtitle{Customise this page according to your needs}
+\title[How to Hackathon?]{How to Hackathon?}
+\subtitle{Wann und wie Hackathons kommunalen Verwaltungen helfen können.}
 
-\author[Federico Marotta]{Federico Marotta \thanks{A \LaTeX\ lover}}
+\author[Code for Germany]{Code for Germany}
 
-\date{\today}
+\date{01. Oktober 2020}
 
-\publishers{An Awesome Publisher}
+\publishers{Open Knowledge Foundation Deutschland e.V.}
 
 %----------------------------------------------------------------------------------------
 
@@ -119,17 +121,19 @@
 %	COPYRIGHT PAGE
 %----------------------------------------------------------------------------------------
 
-\makeatletter
-\uppertitleback{\@titlehead} % Header
+% \makeatletter
+% \uppertitleback{\@titlehead} % Header
 
-\lowertitleback{
+% \lowertitleback{
+\pagebreak
+\vspace {13cm}
 	\textbf{Über die Autor*innen}\\
 	Dieser Leitfaden entstand aus den langjährigen Erfahrungen einer Civic-Tech-Community.
 
 	\medskip
 
 	\textbf{Lizenz}\\
-	\ccby\ Dieser Leitfaden steht unter der Lizenz CC-BY. Er kann also angepasst und veröffentlicht werden.	Die Lizenzbestimmungen von CC-BY sind hier nachzulesen: \\\url{http://creativecommons.org/publicdomain/zero/1.0/}
+	\cczero\ Dieser Leitfaden steht unter der Lizenz CC0. Die Lizenzbestimmungen sind hier nachzulesen: \\\url{http://creativecommons.org/publicdomain/zero/1.0/}.
 
 	\medskip
 
@@ -137,15 +141,16 @@
 	Dieses Dokument wurde mit der Hilfe des \href{https://sourceforge.net/projects/koma-script/}{\KOMAScript} and \href{https://www.latex-project.org/}{\LaTeX} gesetzt, unter Verwendung der \href{https://github.com/fmarotta/kaobook/}{kaobook}-Klasse. Wir möchten uns an dieser Stelle herzlich bei den Entwickler*innen bedanken.
 
 	Der Quellcode dieses Leitfadens ist online verfügbar unter:\\
-	\url{https://github.com/codeforde/hackathon-leitfaden}
-	Wir freuen uns über Verbesserungsvorschläge!
+	\url{https://github.com/codeforde/hackathon-leitfaden} \\
+	
+	Wir freuen uns über Verbesserungsvorschläge und Pull Requests!
 
 	\medskip
 
 	\textbf{Herausgeber} \\
-	Version 1.0 veröffentlicht am 30. September 2020 von \@publishers.
-}
-\makeatother
+	Version 1.0 veröffentlicht am 30. September 2020 von Code for Germany.
+% }
+% \makeatother
 
 %----------------------------------------------------------------------------------------
 %	DEDICATION
@@ -165,7 +170,7 @@
 % If twoside=false, \uppertitleback and \lowertitleback are not printed
 % To overcome this issue, we set twoside=semi just before printing the title pages, and set it back to false just after the title pages
 \KOMAoptions{twoside=semi}
-\maketitle
+% \maketitle
 %\KOMAoptions{twoside=false}
 
 %----------------------------------------------------------------------------------------
@@ -180,9 +185,10 @@
 
 \begingroup % Local scope for the following commands
 
+
 % Define the style for the TOC, LOF, and LOT
 %\setstretch{1} % Uncomment to modify line spacing in the ToC
-%\hypersetup{linkcolor=blue} % Uncomment to set the colour of links in the ToC
+
 \setlength{\textheight}{23cm} % Manually adjust the height of the ToC pages
 
 % Turn on compatibility mode for the etoc package
