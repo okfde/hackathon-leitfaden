@@ -50,10 +50,10 @@
 
 % Set the language
 \usepackage[ngerman]{babel} % Load characters and hyphenation
-\usepackage[german=quotes]{csquotes} % English quotes
+\usepackage[german=quotes]{csquotes} % German quotes
 
 % Load packages for testing
-\usepackage{blindtext}
+%\usepackage{blindtext}
 %\usepackage{showframe} % Uncomment to show boxes around the text area, margin, header and footer
 %\usepackage{showlabels} % Uncomment to output the content of \label commands to the document where they are used
 
@@ -62,7 +62,7 @@
 % \addbibresource{main.bib} % Bibliography file
 
 % Load mathematical packages for theorems and related environments. NOTE: choose only one between 'mdftheorems' and 'plaintheorems'.
-\usepackage{styles/mdftheorems}
+%\usepackage{styles/mdftheorems}
 %\usepackage{styles/plaintheorems}
 
 \graphicspath{{examples/documentation/images/}{images/}} % Paths in which to look for images
@@ -76,6 +76,8 @@
 % Reset sidenote counter at chapters
 %\counterwithin*{sidenote}{chapter}
 
+\newcommand{\leitfadenversion}{Version vREPLACEME}
+
 %----------------------------------------------------------------------------------------
 
 \begin{document}
@@ -84,15 +86,15 @@
 %	BOOK INFORMATION
 %----------------------------------------------------------------------------------------
 
-\titlehead{How to Hackathon?}
+\titlehead{How to Hackathon? (\leitfadenversion)}
 \subject{Wann und wie Hackathons kommunalen Verwaltungen helfen können.}
 
-\title[How to Hackathon?]{How to Hackathon?}
+\title[How to Hackathon? (\leitfadenversion)]{How to Hackathon? (\leitfadenversion)}
 \subtitle{Wann und wie Hackathons kommunalen Verwaltungen helfen können.}
 
 \author[Code for Germany]{Code for Germany}
 
-\date{01. Oktober 2020}
+\date{\today}
 
 \publishers{Open Knowledge Foundation Deutschland e.V.}
 
@@ -145,11 +147,11 @@
 	\medskip
 
 	\textbf{Herausgeber} \\
-	Version 1.0 veröffentlicht am 30. September 2020 von Code for Germany.
-	
+	\leitfadenversion\ veröffentlicht am \today\ von Code for Germany.
+
 	Der Quellcode dieses Leitfadens ist online verfügbar unter:\\
 	\url{https://github.com/codeforgermany/how-to-hackathon} \\
-	
+
 	Wir freuen uns über Verbesserungsvorschläge und Pull Requests!
 % }
 % \makeatother
