@@ -13,20 +13,20 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v2
 
-      - uses: xu-cheng/texlive-action/full@v1
-        with:
-          run: |
-            ./compileall.sh
-
-      - name: Rename main.pdf
-        id: branch_info
+      - name: Gather information
+        id: info
         run: |
             tag_name="${GITHUB_REF##*/}"
             filename="hackathon-leitfaden-${tag_name}.pdf"
             echo "##[set-output name=tag_name;]${tag_name}"
             echo "##[set-output name=filename;]${filename}"
 
-            mv main.pdf "$filename"
+      - uses: xu-cheng/texlive-action/full@v1
+        with:
+          run: |
+            export DOCUMENT_VERSION="${{ steps.info.outputs.tag_name }}"
+            ./compileall.sh
+            mv main.pdf "${{ steps.info.outputs.filename }}"
 
       - name: Create Release
         id: create_release
@@ -35,7 +35,7 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
           tag_name: ${{ github.ref }}
-          release_name: Hackathon Leitfaden ${{ steps.branch_info.outputs.tag_name }}
+          release_name: Hackathon Leitfaden ${{ steps.info.outputs.tag_name }}
           draft: false
           prerelease: false
 
@@ -46,6 +46,6 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
           upload_url: ${{ steps.create_release.outputs.upload_url }}
-          asset_path: ./${{ steps.branch_info.outputs.filename }}
-          asset_name: ${{ steps.branch_info.outputs.filename }}
+          asset_path: ./${{ steps.info.outputs.filename }}
+          asset_name: ${{ steps.info.outputs.filename }}
           asset_content_type: application/pdf
