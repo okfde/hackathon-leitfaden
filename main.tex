@@ -99,7 +99,9 @@
 %----------------------------------------------------------------------------------------
 
 \frontmatter % Denotes the start of the pre-document content, uses roman numerals
-\includepdf{test-titelseite.pdf}
+\includepdf{cfg-frontmatter.pdf}
+
+\renewcommand{\thefootnote}{\arabic{footnote}}
 
 %----------------------------------------------------------------------------------------
 %	OPENING PAGE
@@ -126,7 +128,7 @@
 
 % \lowertitleback{
 \pagebreak
-\vspace {13cm}
+\vspace*{13cm}
 	\textbf{Über die Autor:innen}\\
 	Dieser Leitfaden entstand aus den langjährigen Erfahrungen einer Civic-Tech-Community.
 
@@ -140,15 +142,15 @@
 	\textbf{Layout} \\
 	Dieses Dokument wurde mit der Hilfe des \href{https://sourceforge.net/projects/koma-script/}{\KOMAScript} and \href{https://www.latex-project.org/}{\LaTeX} gesetzt, unter Verwendung der \href{https://github.com/fmarotta/kaobook/}{kaobook}-Klasse. Wir möchten uns an dieser Stelle herzlich bei den Entwickler*innen bedanken.
 
-	Der Quellcode dieses Leitfadens ist online verfügbar unter:\\
-	\url{https://github.com/codeforde/hackathon-leitfaden} \\
-	
-	Wir freuen uns über Verbesserungsvorschläge und Pull Requests!
-
 	\medskip
 
 	\textbf{Herausgeber} \\
 	Version 1.0 veröffentlicht am 30. September 2020 von Code for Germany.
+	
+	Der Quellcode dieses Leitfadens ist online verfügbar unter:\\
+	\url{https://github.com/codeforgermany/how-to-hackathon} \\
+	
+	Wir freuen uns über Verbesserungsvorschläge und Pull Requests!
 % }
 % \makeatother
 
@@ -301,7 +303,7 @@
 \thispagestyle{empty}
 \null%
 \clearpage
-% \includepdf{donut.jpg}
+\includepdf{cfg-backmatter.pdf}
 
 %----------------------------------------------------------------------------------------
 
