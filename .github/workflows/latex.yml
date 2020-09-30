@@ -11,9 +11,13 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
+
       - uses: xu-cheng/texlive-action/full@v1
         with:
-          run: bash compileall.sh
+          run: |
+            export DOCUMENT_VERSION="prerelease-${GITHUB_REF##*/}-$(date -Iseconds)"
+            ./compileall.sh
+
       - uses: actions/upload-artifact@v2
         with:
           name: rendered pdf
