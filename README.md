@@ -4,6 +4,8 @@ Während der Ausbreitung des Corona-Virus ab März 2020 hat das Hackathon-Format
 
 Deshalb haben wir als Code-for-Germany-Netzwerk unsere Erfahrungen und Erkenntnisse zu Hackathons zusammengetragen und in diesem GitHub-Repo zusammengestellt.
 
+Die jeweils aktuellste Version kann [hier](https://github.com/okfde/hackathon-leitfaden/releases/latest) unter "Assets" heruntergeladen werden.
+
 ## Struktur
 
 Die Struktur des Quellcodes ist technisch noch etwas unsauber, basiert auf dem kaobook-Template für LaTeX. Der Text ist bisher in den beiden Dateien _main.tex_ und _chapters/introduction.tex_ zu finden. Langfristig soll das umgebaut werden in eine einfacher handhabbare Markdown-Datei, die dann durch Templates in jeweils ein PDF- und HTML-Dokument gerendert wird.
@@ -16,7 +18,7 @@ Der Text des Leitfadens ist unter der [Creative Commons Zero v1.0 Universal](htt
 
 ## Veröffentlichungen (Releases)
 
-Veröffentlichungen dieses Leitfadens werden automatisiert über GitHub Actions erstellt und sind hier verfügbar: [https://github.com/joliyea/hackathon-leitfaden/releases](https://github.com/joliyea/hackathon-leitfaden/releases).
+Veröffentlichungen dieses Leitfadens werden automatisiert über GitHub Actions erstellt und sind hier verfügbar: [https://github.com/okfde/hackathon-leitfaden/releases](https://github.com/okfde/hackathon-leitfaden/releases).
 
 ### Neue Veröffentlichungen erstellen
 
